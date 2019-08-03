@@ -34,5 +34,5 @@ build/
 ### other stuff ###
 .DS_Store
 lcm_web/.mvn/
-/lcm_web/mvnw
+**lcm_web/mvnw
 /lcm_web/mvnw.cmd

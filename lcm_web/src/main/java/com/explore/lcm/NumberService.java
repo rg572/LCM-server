@@ -3,6 +3,8 @@ package com.explore.lcm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigInteger;
+
 @Service
 public class NumberService {
 
@@ -19,6 +21,7 @@ public class NumberService {
             calc.addFactor(i);
         }
 
-        return calc.getLCM().toString();
+        BigInteger answer =  calc.getLCM();
+        return String.format("%,d",answer);
     }
 }

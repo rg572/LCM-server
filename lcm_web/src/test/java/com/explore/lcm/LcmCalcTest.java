@@ -3,8 +3,11 @@ package com.explore.lcm;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static org.junit.Assert.*;
 
@@ -24,6 +27,37 @@ public class LcmCalcTest {
         calc.addFactor(3);
         calc.addFactor(4);
         List<Integer> actual = calc.getFactorList();
+
+        // Then
+        Assert.assertEquals(expected, actual);
+
+    }
+
+    @Test
+    public void testGetPrimeFactors1(){
+        // Given
+        LcmCalc calc = new LcmCalc();
+        Map<BigInteger, Integer> expected = new HashMap<>();
+        expected.put(BigInteger.valueOf(2),1);
+        expected.put(BigInteger.valueOf(5),1);
+
+        // When
+        Map<BigInteger, Integer> actual = calc.getPrimeFactors(10);
+
+        // Then
+        Assert.assertEquals(expected, actual);
+
+    }
+
+    @Test
+    public void testGetPrimeFactors2(){
+        // Given
+        LcmCalc calc = new LcmCalc();
+        Map<BigInteger, Integer> expected = new HashMap<>();
+        expected.put(BigInteger.valueOf(3),3);
+
+        // When
+        Map<BigInteger, Integer> actual = calc.getPrimeFactors(27);
 
         // Then
         Assert.assertEquals(expected, actual);

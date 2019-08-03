@@ -10,7 +10,7 @@ target/
 .factorypath
 .project
 .settings
-.springBeans
+.springBeansd
 .sts4-cache
 
 ### IntelliJ IDEA ###
@@ -32,7 +32,7 @@ build/
 
 
 ### other stuff ###
-.DS_Store
-lcm_web/.mvn/
-**lcm_web/mvnw
-/lcm_web/mvnw.cmd
+**/.DS_Store
+**/.mvn/
+**/mvnw
+**/mvnw.cmd

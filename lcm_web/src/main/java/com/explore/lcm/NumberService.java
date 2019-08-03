@@ -24,4 +24,15 @@ public class NumberService {
         BigInteger answer =  calc.getLCM();
         return String.format("%,d",answer);
     }
+
+    public String getLcmRange(Integer a, Integer b){
+        calc.clearFactors();
+
+        for(int i = a; i <= b; i++){
+            calc.addFactor(i);
+        }
+
+        BigInteger answer = calc.getLCM();
+        return String.format("%,d",answer);
+    }
 }

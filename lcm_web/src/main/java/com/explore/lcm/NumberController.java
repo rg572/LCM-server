@@ -17,9 +17,15 @@ public class NumberController {
         this.numberService = numberService;
     }
 
-    @GetMapping("upto/{n}")
+    @GetMapping("/upto/{n}")
     public ResponseEntity<String> getLcmOneToN(@PathVariable Integer n){
         String answer = numberService.getLcmUpToN(n);
+        return new ResponseEntity<>(answer, HttpStatus.OK);
+    }
+
+    @GetMapping("/range/{a}/{b}")
+    public ResponseEntity<String> getLcmRange(@PathVariable Integer a, @PathVariable Integer b){
+        String answer = numberService.getLcmRange(a, b);
         return new ResponseEntity<>(answer, HttpStatus.OK);
     }
 

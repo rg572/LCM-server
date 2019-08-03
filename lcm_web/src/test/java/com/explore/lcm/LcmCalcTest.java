@@ -64,5 +64,114 @@ public class LcmCalcTest {
 
     }
 
+    @Test
+    public void testGetPrimeFactors3(){
+        // Given
+        LcmCalc calc = new LcmCalc();
+        Map<BigInteger, Integer> expected = new HashMap<>();
+        expected.put(BigInteger.valueOf(2),4);
+
+        // When
+        Map<BigInteger, Integer> actual = calc.getPrimeFactors(16);
+
+        // Then
+        Assert.assertEquals(expected, actual);
+
+    }
+
+    @Test
+    public void testGetPrimeFactors4(){
+        // Given
+        LcmCalc calc = new LcmCalc();
+        Map<BigInteger, Integer> expected = new HashMap<>();
+        expected.put(BigInteger.valueOf(2),2);
+
+        // When
+        Map<BigInteger, Integer> actual = calc.getPrimeFactors(4);
+
+        // Then
+        Assert.assertEquals(expected, actual);
+
+    }
+
+    @Test
+    public void testGetPrimeFactors5(){
+        // Given
+        LcmCalc calc = new LcmCalc();
+        Map<BigInteger, Integer> expected = new HashMap<>();
+        expected.put(BigInteger.valueOf(2),3);
+
+        // When
+        Map<BigInteger, Integer> actual = calc.getPrimeFactors(8);
+
+        // Then
+        Assert.assertEquals(expected, actual);
+
+    }
+
+    @Test
+    public void testGetLCM1(){
+        // Given
+        LcmCalc calc = new LcmCalc();
+        for(int i =1; i <= 10; i++){
+            calc.addFactor(i);
+        }
+        BigInteger expected = BigInteger.valueOf(2520);
+
+        // When
+        BigInteger actual = calc.getLCM();
+
+        // Then
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testGetLCM2(){
+        // Given
+        LcmCalc calc = new LcmCalc();
+        for(int i =1; i <= 20; i++){
+            calc.addFactor(i);
+        }
+        BigInteger expected = BigInteger.valueOf(232792560);
+
+        // When
+        BigInteger actual = calc.getLCM();
+
+        // Then
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testGetLCM3(){
+        // Given
+        LcmCalc calc = new LcmCalc();
+        for(int i =1; i <= 30; i++){
+            calc.addFactor(i);
+        }
+        BigInteger expected = BigInteger.valueOf(2329089562800L);
+
+        // When
+        BigInteger actual = calc.getLCM();
+
+        // Then
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void clearTest(){
+        // Given
+        LcmCalc calc = new LcmCalc();
+        calc.addFactor(4);
+        calc.addFactor(6);
+        Integer expected = 0;
+
+        // When
+        calc.clearFactors();
+        Integer actual = calc.getFactorList().size();
+
+        // Then
+        Assert.assertEquals(expected, actual);
+    }
+
 
 }

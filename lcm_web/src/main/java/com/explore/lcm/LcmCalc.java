@@ -1,11 +1,11 @@
 package com.explore.lcm;
 
-import java.math.BigInteger;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import org.springframework.stereotype.Component;
 
+import java.math.BigInteger;
+import java.util.*;
+
+@Component
 public class LcmCalc {
 
     private List<Integer> factorList;
@@ -15,9 +15,13 @@ public class LcmCalc {
     }
 
     public void addFactor(Integer factor){
-        if(factor > 0) {
+        if(factor > 1) {
             this.factorList.add(factor);
         }
+    }
+
+    public void clearFactors(){
+        this.factorList.clear();
     }
 
     public BigInteger getLCM(){
@@ -49,7 +53,7 @@ public class LcmCalc {
     public Map<BigInteger, Integer> getPrimeFactors(Integer n){
         Integer count = 2;
         Map<BigInteger, Integer> factors = new HashMap<>();
-        while(count < n/2){
+        while(count <= n/2){
             if(n%count == 0){
                 factors.merge(BigInteger.valueOf(count), 1, Integer::sum);
                 n = n/count;
